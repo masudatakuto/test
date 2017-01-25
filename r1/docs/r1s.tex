@@ -1,0 +1,141 @@
+\documentclass [11pt] {jsarticle}
+
+\begin {document}
+\section*{ソースコード}
+\begin{verbatim}[4]
+   val id = shapeGroup.selectedToggle().
+   asInstanceOf[javafx.scene.control.ToggleButton].id()
+   
+#include <stdio.h>
+#include <math.h>
+//問題１
+int calc(float x0, int ind) {
+	float x=0;
+	int i;
+	for (i=0; i<pow(10,ind); i++) {
+		x += x0;
+	}
+	printf("n=10^%d: %f\n",ind , x);
+	return 0;
+}
+
+int main() {
+	float x1 = 1;
+	float x2 = 0.1;
+	float x3 = 0.15625;
+	
+	printf("x=1:\n");
+	calc(x1,2);
+	calc(x1,5);
+	calc(x1,8);
+	printf("\nx=0.1:\n");
+	calc(x2,2);
+	calc(x2,5);
+	calc(x2,8);
+	printf("\nx=0.15625:\n");
+	calc(x3,2);
+	calc(x3,5);
+	calc(x3,8);
+	return 0;
+}
+\end{verbatim}
+
+問題1のfloat型を用いたもの。double型にするにはfloatをすべてdoubleに書き換えればよい。
+\begin{verbatim}
+#include <stdio.h>
+#include <math.h>
+//問題１
+int calc(float x0, int ind) {
+	float x=0;
+	int i;
+	for (i=0; i<pow(10,ind); i++) {
+		x += x0;
+	}
+	printf("n=10^%d: %f\n",ind , x);
+	return 0;
+}
+
+int main() {
+	float x1 = 1;
+	float x2 = 0.1;
+	float x3 = 0.15625;
+	
+	printf("x=1:\n");
+	calc(x1,2);
+	calc(x1,5);
+	calc(x1,8);
+	printf("\nx=0.1:\n");
+	calc(x2,2);
+	calc(x2,5);
+	calc(x2,8);
+	printf("\nx=0.15625:\n");
+	calc(x3,2);
+	calc(x3,5);
+	calc(x3,8);
+	return 0;
+}
+\end{verbatim}
+
+問題2のソースコード
+\begin{verbatim}
+#include <stdio.h>
+#include <math.h>
+//問題２
+int calc(int n) {
+	float x = 0;
+	float x0 = powf(10,-n);
+	int i;
+	for (i=0; i<pow(10,n); i++) {
+		x += x0;
+	}
+	printf("n=%d: %f\n", n, x);
+	return 0;
+}
+
+int main() {
+	int j;
+	for (j=1; j<10; j++){
+		calc(j);
+	}
+	return 0;
+}
+\end{verbatim}
+
+問題3のソースコード
+\begin{verbatim}
+#include <stdio.h>
+#include <math.h>
+//問題３
+int calc1(int n) {
+	int x;
+	x = powf(2, n);
+	
+	printf("n=%d: %d\n", n, x);
+	return 0;
+}
+
+int calc2(int n) {
+	float y;
+	y = powf(2, -n);
+	
+	printf("n=%d: %e\n", n, y);
+	return 0;
+}
+
+int main() {
+	int j;
+	
+	for (j=1; j<=256; j++){
+		calc1(j);
+	}
+	printf("\n");
+	
+	for (j=1; j<=256; j++){
+		calc2(j);
+	}
+	return 0;
+}
+\end{verbatim}
+\end {document}
+
+\maketitle
